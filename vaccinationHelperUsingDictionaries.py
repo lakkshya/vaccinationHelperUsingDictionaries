@@ -15,7 +15,19 @@ def getDetails():
     print("2")
 
 def getTillNowDone():
-    print("3")
+    print("\n\n")
+    print(" NO OF PEOPLES GOT VACCINATED TILL NOW ARE :- ", len(allDetails)-1)
+    noOfFirstDose = 0
+    noOfSecondDose = 0
+    for aadhars, values in allDetails.items():
+        for keys in values:
+            if( keys == "DOSE 1" and values[keys] != "NA" ):
+                noOfFirstDose = noOfFirstDose + 1
+            elif( keys == "DOSE 2" and values[keys] != "NA" ):
+                noOfSecondDose = noOfSecondDose + 1
+    print(" NO OF PEOPLES GOT VACCINATED WITH I DOSE ARE :- ", noOfFirstDose)
+    print(" NO OF PEOPLES GOT VACCINATED WITH II DOSE ARE :- ", noOfSecondDose)
+        
 
 # A startUp Interface for the user
 print(" \t    !!!!! WELCOME TO THE VACCINATION PORTAL !!!! \n")
