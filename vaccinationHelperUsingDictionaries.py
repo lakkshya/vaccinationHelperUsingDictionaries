@@ -9,10 +9,30 @@ allDetails = {
 
 # defining all the function required fot t
 def enterVaccination():
-    print("1")
+    print("\n\n")
+    print(" !!!! WELCOME TO DETAILS ADDITION PORTAL !!!! ")
+
+    aadharNumber = input("\t PLEASE ENTER YOUR ADDHAR NUMBER :- ")
+    while(len(aadharNumber) != 12):
+        print("\t !!!! INVALID AADHAR NUMBER ENTERED PLEASE TRY AGAIN !!!! ")
+        aadharNumber = input("\t PLEASE ENTER YOUR ADDHAR NUMBER :- ")
+    
+    if aadharNumber in allDetails:
+        print("\t YOUR DETAILS ARE ALREADY IN OUR RECORDS ")
+        userConcern = input("\t WANT TO UPDATE SECOND DOSE INFO ( YES / NO ) :- ")
+        if( userConcern == "YES"):
+            allDetails[aadharNumber]["DOSE 2"] = "OK"
+    else:
+        name = input("\t PLEASE ENTER YOUR FULL NAME :- ")
+        gender = input("\t PLEASE SPECIFY YOUR GENDER :- ")
+        dobEntered = input("\t PLEASE ENTER YOUR DATE OF BIRTH :- ")
+        vaccinationType = input("\t PLEASE ENTER YOUR VACCINE TYPE / NAME :- ")
+        print("\t AS YOU ARE GETTING VACCINATED FIRST TIME YOU ARE ONLY ELIGIBLE FOR FIRST DOSE ")
+        allDetails[aadharNumber] = {"Name": name, "Gender" : gender, "D.O.B": dobEntered, "TYPE": vaccinationType, "DOSE 1": "OK", "DOSE 2": "NA"}
+
 
 def getDetails():
-    print("2")
+    print(allDetails["942790850424"])
 
 def getTillNowDone():
     print("\n\n")
