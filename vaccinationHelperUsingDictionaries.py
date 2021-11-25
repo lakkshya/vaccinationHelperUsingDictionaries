@@ -1,7 +1,9 @@
 
-# starting our dictionaries of dictionaries with a garbage value
-# we will store information of people with their Aadhar Number as their keys
-# and rest all the fields as a dictionary with all values in key-value pair
+"""
+    starting our dictionaries of dictionaries with a garbage value
+    we will store information of people with their Aadhar Number as their keys
+    and rest all the fields as a dictionary with all values in key-value pair
+"""
 
 allDetails = {
     "Garbage" : {"Name": "Name", "Gender" : "Gender", "D.O.B": "D.O.B", "TYPE": "TYPE", "DOSE 1": "DOSE 1", "DOSE 2": "DOSE 2"}
@@ -22,7 +24,7 @@ def enterVaccination():
         userConcern = input("\t WANT TO UPDATE SECOND DOSE INFO ( YES / NO ) :- ")
         if( userConcern == "YES"):
             allDetails[aadharNumber]["DOSE 2"] = "COMPLETED"
-        print("\n\t||    DETAILS OF SECOND DOSE ADDED SUCCESFULLY   ||")
+            print("\n\t||    DETAILS OF SECOND DOSE ADDED SUCCESFULLY   ||")
     else:
         name = input("\tPLEASE ENTER YOUR FULL NAME :- ")
         gender = input("\tPLEASE SPECIFY YOUR GENDER :- ")
@@ -41,6 +43,9 @@ def getDetails():
     print("\t\tVaccine Name : ", allDetails[showRecord]["TYPE"])
     print("\t\tDose 1 : ", allDetails[showRecord]["DOSE 1"])
     print("\t\tDose 2 : ", allDetails[showRecord]["DOSE 2"], "\n")
+
+def deleteDetails():
+    print("DELETE")
 
 def getTillNowDone():
     print("\n")
@@ -66,8 +71,9 @@ while(True):
     print("\t\t   WHAT DO YOU WANT TO PERFORM ? \n")
     print("\t         1. ENTER MY VACCINATION DETAILS          ")
     print("\t          2. GET MY VACCINATION DETAILS           ")
-    print("\t  3. GET THE NUMBER OF VACCINATIONS DONE TILL NOW")
-    print("\t\t\t    4. EXIT")
+    print("\t  3. GET THE NUMBER OF VACCINATIONS DONE TILL NOW ")
+    print("\t         4. DELETE MY VACCINATION DETAIL          ")
+    print("\t\t\t    5. EXIT")
     print("\n--------------------------------------------------------------------")
 
     userChoices = int(input("\n\t     PLEASE ENTER YOUR SELECTION :- "))
@@ -78,6 +84,8 @@ while(True):
         getDetails()
     elif(userChoices == 3):
         getTillNowDone()
+    elif(userChoices == 4):
+        deleteDetails()
     else:
         print("\n\n\t\t      !!! THANK YOU !!!!")
         break
